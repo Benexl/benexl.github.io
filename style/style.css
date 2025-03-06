@@ -251,8 +251,7 @@ nav {
 .character-detail p {
   font-size: 12px;
   font-weight: 600;
-  color: var(--color-4);
-  opacity: 0.8;
+  color: var(--color-5);
 }
 
 .quote {
@@ -299,4 +298,58 @@ nav {
 
 .skill.card:hover i {
   color: var(--color-3);
+}
+
+/* designs */
+#designs .mini-section-content {
+  overflow-y: scroll;
+}
+.design.card {
+  overflow: hidden;
+  padding: 0px;
+  border: 1px solid var(--color-6);
+}
+
+.design.card img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/* footer */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px var(--padding-x);
+  background-color: var(--color-1);
+  border-top: 1px solid var(--color-6);
+}
+
+footer .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-4);
+  transition: color 0.3s ease;
+}
+
+footer .logo:hover {
+  color: var(--color-2);
+}
+
+footer ul {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+footer ul li a {
+  color: var(--color-4);
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+  color: var(--color-2);
 }

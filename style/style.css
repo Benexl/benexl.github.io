@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
-/* define color pallete */
+/* define color palette */
 :root {
   /* colors */
   --color-1: #0d0e0d;
@@ -15,7 +15,6 @@
 }
 
 /* reset */
-
 *,
 *::after,
 *::before {
@@ -26,7 +25,7 @@
 
 /* general styling */
 body {
-  font-family: poppins, Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   width: 100%;
   background-color: var(--color-1);
 }
@@ -132,6 +131,7 @@ nav ul li button:hover,
 nav ul li button:active {
   background-color: var(--color-3);
 }
+
 .hamburger-menu {
   display: none;
   cursor: pointer;
@@ -156,11 +156,141 @@ nav ul li button:active {
   nav ul.active {
     display: flex;
   }
+
+  :root {
+    --padding-x: 16px;
+  }
+
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 16px var(--padding-x);
+  }
+
+  .hero .punch-line h1 {
+    font-size: 48px;
+  }
+
+  .hero .punch-line p:nth-of-type(1) {
+    font-size: 24px;
+  }
+
+  .hero .punch-line p:nth-of-type(2) {
+    font-size: 18px;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  nav ul li button {
+    font-size: 14px;
+  }
+
+  .mini-section-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mini-section-header {
+    font-size: 20px;
+  }
+
+  .character.card {
+    width: 100%;
+    height: auto;
+  }
+
+  .character-image img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .character-detail h2 {
+    font-size: 12px;
+  }
+
+  .character-detail p {
+    font-size: 10px;
+  }
+
+  .quote {
+    font-size: 24px;
+  }
+
+  .skill.card i {
+    font-size: 48px;
+  }
+
+  .skill.card p:nth-of-type(1) {
+    font-size: 20px;
+  }
+
+  .skill.card p {
+    font-size: 14px;
+  }
+
+  footer .logo {
+    font-size: 20px;
+  }
+
+  footer ul li a {
+    font-size: 20px;
+  }
 }
+
+@media (max-width: 480px) {
+  .hero .punch-line h1 {
+    font-size: 36px;
+  }
+
+  .hero .punch-line p:nth-of-type(1) {
+    font-size: 18px;
+  }
+
+  .hero .punch-line p:nth-of-type(2) {
+    font-size: 14px;
+  }
+
+  .mini-section-header {
+    font-size: 18px;
+  }
+
+  .quote {
+    font-size: 20px;
+  }
+
+  .skill.card i {
+    font-size: 36px;
+  }
+
+  .skill.card p:nth-of-type(1) {
+    font-size: 18px;
+  }
+
+  .skill.card p {
+    font-size: 12px;
+  }
+
+  footer .logo {
+    font-size: 18px;
+  }
+
+  footer ul li a {
+    font-size: 18px;
+  }
+}
+
 /* hero */
 .hero {
   display: flex;
-  padding: 0px var(--padding-x);
+  padding: 0 var(--padding-x);
   height: 90vh;
   align-items: center;
   justify-content: space-between;
@@ -335,7 +465,7 @@ nav ul li button:active {
 
 .design.card {
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   border: 1px solid var(--color-6);
 }
 
@@ -344,6 +474,7 @@ nav ul li button:active {
   height: 100%;
   width: 100%;
 }
+
 /* open source projects */
 #projects .mini-section-content {
   display: flex;
@@ -406,140 +537,5 @@ footer ul li a:hover {
 @media (max-width: 768px) {
   .cool-image {
     display: none;
-  }
-}
-@media (max-width: 768px) {
-  :root {
-    --padding-x: 16px;
-  }
-
-  .hero {
-    flex-direction: column;
-    height: auto;
-    padding: 16px var(--padding-x);
-  }
-
-  .hero .punch-line h1 {
-    font-size: 48px;
-  }
-
-  .hero .punch-line p:nth-of-type(1) {
-    font-size: 24px;
-  }
-
-  .hero .punch-line p:nth-of-type(2) {
-    font-size: 18px;
-  }
-
-  .card {
-    width: 100%;
-    height: auto;
-    padding: 16px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  nav ul li a {
-    font-size: 14px;
-  }
-
-  nav ul li button {
-    font-size: 14px;
-  }
-
-  .mini-section-content {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .mini-section-header {
-    font-size: 20px;
-  }
-
-  .character.card {
-    width: 100%;
-    height: auto;
-  }
-
-  .character-image img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .character-detail h2 {
-    font-size: 12px;
-  }
-
-  .character-detail p {
-    font-size: 10px;
-  }
-
-  .quote {
-    font-size: 24px;
-  }
-
-  .skill.card i {
-    font-size: 48px;
-  }
-
-  .skill.card p:nth-of-type(1) {
-    font-size: 20px;
-  }
-
-  .skill.card p {
-    font-size: 14px;
-  }
-
-  footer .logo {
-    font-size: 20px;
-  }
-
-  footer ul li a {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero .punch-line h1 {
-    font-size: 36px;
-  }
-
-  .hero .punch-line p:nth-of-type(1) {
-    font-size: 18px;
-  }
-
-  .hero .punch-line p:nth-of-type(2) {
-    font-size: 14px;
-  }
-
-  .mini-section-header {
-    font-size: 18px;
-  }
-
-  .quote {
-    font-size: 20px;
-  }
-
-  .skill.card i {
-    font-size: 36px;
-  }
-
-  .skill.card p:nth-of-type(1) {
-    font-size: 18px;
-  }
-
-  .skill.card p {
-    font-size: 12px;
-  }
-
-  footer .logo {
-    font-size: 18px;
-  }
-
-  footer ul li a {
-    font-size: 18px;
   }
 }

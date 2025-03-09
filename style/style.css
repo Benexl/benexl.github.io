@@ -573,11 +573,12 @@ footer ul li a:hover {
 }
 
 #image-viewer i {
-  position: absolute;
+  position: fixed;
   color: var(--color-4);
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
+  opacity: 90%;
   padding: var(--padding-x);
 }
 
@@ -589,13 +590,12 @@ footer ul li a:hover {
 }
 
 #image-viewer .close {
-  top: 15px;
+  top: 0px;
   right: 0px;
 }
 
 #image-viewer #next-image,
 #image-viewer #previous-image {
-  position: fixed;
   top: 50%;
   transform: translateY(-50%);
 }

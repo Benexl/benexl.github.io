@@ -193,7 +193,10 @@ nav ul li a.contact:active {
   color: var(--color-5);
 }
 
-.hero .punch-line button {
+.hero .punch-line a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 8px 16px;
   background-color: var(--color-2);
   color: var(--color-4);
@@ -203,8 +206,8 @@ nav ul li a.contact:active {
   transition: background-color 0.3s ease;
 }
 
-.hero .punch-line button:hover,
-.hero .punch-line button:active {
+.hero .punch-line a:hover,
+.hero .punch-line a:active {
   background-color: var(--color-3);
 }
 

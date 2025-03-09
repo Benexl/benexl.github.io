@@ -574,7 +574,7 @@ footer ul li a:hover {
 
 #image-viewer i {
   position: fixed;
-  color: var(--color-4);
+  color: var(--color-5);
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
@@ -584,7 +584,7 @@ footer ul li a:hover {
 
 #image-viewer i:hover,
 #image-viewer i:focus {
-  color: var(--color-6);
+  color: var(--color-3);
   text-decoration: none;
   cursor: pointer;
 }

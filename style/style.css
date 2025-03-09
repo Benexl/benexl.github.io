@@ -572,22 +572,41 @@ footer ul li a:hover {
     transform: scale(1);
   }
 }
-#image-viewer .close {
+
+#image-viewer i {
   position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
+  color: var(--color-4);
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
+  padding: var(--padding-x);
 }
-#image-viewer .close:hover,
-#image-viewer .close:focus {
-  color: #bbb;
+
+#image-viewer i:hover,
+#image-viewer i:focus {
+  color: var(--color-6);
   text-decoration: none;
   cursor: pointer;
 }
 
+#image-viewer .close {
+  top: 15px;
+  right: 35px;
+}
+
+#image-viewer #next-image,
+#image-viewer #previous-image {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#image-viewer #previous-image {
+  left: 0px;
+}
+#image-viewer #next-image {
+  right: 0px;
+}
 @media only screen and (max-width: 700px) {
   .modal-content {
     width: 100%;

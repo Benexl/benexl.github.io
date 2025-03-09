@@ -124,8 +124,7 @@
           <div class="design card">
             <img
               src="./assets/images/adia/desktop/home.png"
-              data-design=""
-              ="adia"
+              data-design="adia"
               alt=""
             />
           </div>
@@ -208,8 +207,19 @@
       </ul>
     </footer>
 
+    <!-- convinience elements -->
     <div id="image-viewer">
-      <span class="close">&times;</span>
+      <i class="fa fa-times close" aria-hidden="true"></i>
+      <i
+        id="previous-image"
+        class="fa fa-arrow-circle-left"
+        aria-hidden="true"
+      ></i>
+      <i
+        id="next-image"
+        class="fa fa-arrow-circle-right"
+        aria-hidden="true"
+      ></i>
       <img class="modal-content" id="full-image" />
     </div>
     <script src="scripts/index.js"></script>

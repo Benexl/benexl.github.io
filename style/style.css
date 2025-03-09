@@ -77,14 +77,14 @@ section {
   align-items: center;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   section {
     height: fit-content;
   }
   .mini-section-content {
     flex-direction: column;
   }
-}
+} */
 /* nav */
 nav {
   display: flex;
@@ -126,18 +126,18 @@ nav ul li a:active {
   color: var(--color-2);
 }
 
-nav ul li button {
+nav ul li a.contact {
   padding: 8px 16px;
   background-color: var(--color-2);
   color: var(--color-4);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
 
-nav ul li button:hover,
-nav ul li button:active {
+nav ul li a.contact:hover,
+nav ul li a.contact:active {
   background-color: var(--color-3);
 }
 
@@ -231,7 +231,6 @@ nav ul li button:active {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  text-transform: capitalize;
   flex-shrink: 0;
 }
 
@@ -242,6 +241,11 @@ nav ul li button:active {
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  #about .mini-section-content {
+    flex-direction: column;
+  }
+}
 .character.card {
   width: 300px;
   height: 210px;
@@ -303,16 +307,11 @@ nav ul li button:active {
   display: flex;
   gap: 16px;
   overflow-y: scroll;
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
-
+.skill.card {
+  text-transform: capitalize;
+  gap: 8px;
+}
 .skill.card i {
   font-size: 72px;
   color: var(--color-2);
@@ -324,6 +323,9 @@ nav ul li button:active {
   font-weight: bold;
   text-align: center;
   color: var(--color-5);
+  height: 50%;
+  display: flex;
+  align-items: center;
 }
 
 .skill.card p:nth-of-type(1) {
@@ -361,16 +363,17 @@ nav ul li button:active {
   display: flex;
   gap: 16px;
   overflow-y: scroll;
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
-
+.github-card {
+  flex-shrink: 0;
+  width: 500px;
+  height: 100%;
+}
+@media (max-width: 468px) {
+  .github-card {
+    width: 100%;
+  }
+}
 .github-card img {
   object-fit: scale-down;
   height: 100%;
@@ -450,7 +453,7 @@ footer ul li a:hover {
 #image-viewer i.i {
   position: fixed;
   color: var(--color-5);
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
   transition: 0.3s;
   opacity: 90%;
@@ -459,14 +462,17 @@ footer ul li a:hover {
 
 #image-viewer i.i:hover,
 #image-viewer i.i:focus {
-  color: var(--color-3);
+  color: var(--color-2);
   text-decoration: none;
   cursor: pointer;
 }
 
-#image-viewer .close {
+#image-viewer .close.i {
   top: 0px;
   right: 0px;
+  &:hover {
+    color: red;
+  }
 }
 
 #image-viewer #next-image,

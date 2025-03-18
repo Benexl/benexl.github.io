@@ -83,3 +83,9 @@ $("[data-design]").click(function () {
 $("#image-viewer .close").click(function () {
   $("#image-viewer").hide();
 });
+$(".hamburger-menu").click(function (e) {
+  console.log($(".nav-small ul").css("display"));
+  $(".nav-small ul").css("display") == "none"
+    ? $(".nav-small ul").show()
+    : $(".nav-small ul").hide();
+});

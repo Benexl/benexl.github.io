@@ -49,8 +49,9 @@ section {
   flex-direction: column;
   justify-content: center;
   padding: 16px var(--padding-x);
-  height: 150vh;
+  min-height: 100vh;
   width: 100%;
+  margin: calc(--padding-x/2);
 }
 
 .mini-section {
@@ -88,13 +89,19 @@ section {
 /* nav */
 nav {
   display: flex;
-  position: sticky;
+  position: fixed;
   top: 0;
+  gap: calc(--padding-x/2);
   justify-content: space-between;
   align-items: center;
+  background-color: var(--color-1);
+  opacity: 95%;
   padding: 16px var(--padding-x);
   border-bottom: 1px solid var(--color-6);
-  height: 80px;
+  /* height: 100px; */
+  width: 100%;
+  z-index: 400;
+  color: var(--color-4);
 }
 
 nav .logo {
@@ -140,22 +147,49 @@ nav ul li a.contact:hover,
 nav ul li a.contact:active {
   background-color: var(--color-3);
 }
-
-.hamburger-menu {
+.nav-large {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.nav-small {
   display: none;
+}
+.hamburger-menu {
   cursor: pointer;
 }
 
 .hamburger-menu i {
   font-size: 24px;
   color: var(--color-4);
+  &:hover {
+    color: var(--color-2);
+  }
 }
 
 @media (max-width: 768px) {
-  .hamburger-menu {
-    display: block;
+  .nav-small {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
-  nav ul {
+  .nav-small div:nth-of-type(1) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .nav-small ul {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+  }
+  .nav-small ul li:last-of-type {
+    display: none;
+  }
+  .nav-large {
     display: none;
   }
 }
@@ -164,7 +198,8 @@ nav ul li a.contact:active {
 .hero {
   display: flex;
   padding: 0 var(--padding-x);
-  height: 90vh;
+  height: 100vh;
+  margin: calc(--padding-x/2);
   align-items: center;
   justify-content: space-between;
 }
@@ -209,9 +244,13 @@ nav ul li a.contact:active {
 .hero .punch-line a:hover,
 .hero .punch-line a:active {
   background-color: var(--color-3);
+  color: var(--color-6);
 }
 
 @media (max-width: 768px) {
+  /* .hero {
+    flex-direction: column;
+  } */
   .cool-image {
     display: none;
   }
@@ -350,6 +389,7 @@ nav ul li a.contact:active {
 }
 
 .design.card {
+  position: relative;
   overflow: hidden;
   padding: 0;
   border: 1px solid var(--color-6);
@@ -359,6 +399,39 @@ nav ul li a.contact:active {
   object-fit: cover;
   height: 100%;
   width: 100%;
+}
+.design.card div {
+  position: absolute;
+  color: var(--color-4);
+  background-color: var(--color-1);
+  bottom: 0%;
+  width: 0%;
+  height: 0%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  align-items: center;
+  opacity: 0%;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.design.card:hover div {
+  display: flex;
+  opacity: 50%;
+  width: 100%;
+  height: 10%;
+}
+
+@media (max-width: 468px) {
+  .design.card div {
+    display: flex;
+    opacity: 50%;
+    width: 100%;
+    height: 10%;
+  }
 }
 
 /* open source projects */

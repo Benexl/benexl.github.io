@@ -645,7 +645,7 @@ footer ul li a:hover {
   width: 100%;
   display: flex;
   gap: 10px;
-  overflow-x: hidden;
+  overflow-x: scroll;
   &:hover .carousel {
     animation-play-state: paused;
   }

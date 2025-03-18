@@ -58,8 +58,9 @@ section {
   display: flex;
   padding: var(--padding-x) 0px;
   flex-direction: column;
-  justify-content: center;
-  height: 50%;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 65vh;
 }
 
 .mini-section-header {
@@ -76,6 +77,7 @@ section {
   width: 100%;
   gap: 16px;
   align-items: center;
+  justify-content: center;
 }
 
 /* @media (max-width: 768px) {
@@ -166,7 +168,9 @@ nav ul li a.contact:active {
     color: var(--color-2);
   }
 }
-
+.nav-small ul {
+  display: none;
+}
 @media (max-width: 768px) {
   .nav-small {
     display: flex;
@@ -179,7 +183,7 @@ nav ul li a.contact:active {
     width: 100%;
   }
   .nav-small ul {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 16px;
     justify-content: center;
@@ -348,7 +352,6 @@ nav ul li a.contact:active {
 #skills .mini-section-content {
   display: flex;
   gap: 16px;
-  overflow-y: scroll;
 }
 .skill.card {
   text-transform: capitalize;
@@ -384,13 +387,8 @@ nav ul li a.contact:active {
 }
 
 /* designs */
-#designs .mini-section-content {
-  overflow-y: scroll;
-}
-
 .design.card {
   position: relative;
-  overflow: hidden;
   padding: 0;
   border: 1px solid var(--color-6);
 }
@@ -424,8 +422,14 @@ nav ul li a.contact:active {
   width: 100%;
   height: 10%;
 }
-
+#designs .mini-section-content {
+  overflow-x: scroll;
+}
 @media (max-width: 468px) {
+  #designs .mini-section-content {
+    flex-direction: column;
+    gap: 16px;
+  }
   .design.card div {
     display: flex;
     opacity: 50%;
@@ -438,7 +442,7 @@ nav ul li a.contact:active {
 #projects .mini-section-content {
   display: flex;
   gap: 16px;
-  overflow-y: scroll;
+  overflow-x: scroll;
 }
 .github-card {
   flex-shrink: 0;
@@ -544,7 +548,7 @@ footer ul li a:hover {
 }
 
 #image-viewer .close.i {
-  top: 0px;
+  top: 50px;
   right: 0px;
   &:hover {
     color: red;
@@ -602,5 +606,30 @@ footer ul li a:hover {
 @media only screen and (max-width: 700px) {
   .modal-content {
     width: 100%;
+  }
+}
+
+/* cool shit */
+
+.carousel {
+  /* ... */
+  will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
+  animation: scrolling 15s linear infinite;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.carousel-container {
+  width: 100%;
+  overflow-x: hidden;
+  &:hover .carousel {
+    animation-play-state: paused;
   }
 }

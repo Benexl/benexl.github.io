@@ -86,6 +86,13 @@ $("#image-viewer .close").click(function () {
 $(".hamburger-menu").click(function (e) {
   console.log($(".nav-small ul").css("display"));
   $(".nav-small ul").css("display") == "none"
-    ? $(".nav-small ul").show()
-    : $(".nav-small ul").hide();
+    ? $(".nav-small ul").css("display", "flex")
+    : $(".nav-small ul").css("display", "none");
 });
+
+$("#skills .card").each((index, element) => {
+  $(element).clone().appendTo("#skills .carousel");
+});
+// $("#designs .card").each((index, element) => {
+//   $(element).clone().appendTo("#designs .carousel");
+// });

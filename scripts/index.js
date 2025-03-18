@@ -89,10 +89,7 @@ $(".hamburger-menu").click(function (e) {
     ? $(".nav-small ul").css("display", "flex")
     : $(".nav-small ul").css("display", "none");
 });
-
-$("#skills .card").each((index, element) => {
-  $(element).clone().appendTo("#skills .carousel");
-});
+$(".carousel").clone().appendTo(".carousel-container");
 // $("#designs .card").each((index, element) => {
 //   $(element).clone().appendTo("#designs .carousel");
 // });

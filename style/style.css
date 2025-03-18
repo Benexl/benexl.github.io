@@ -626,6 +626,10 @@ footer ul li a:hover {
   /* ... */
   will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
   animation: scrolling 15s linear infinite;
+  width: fit-content;
+  flex-grow: 0;
+  padding-right: 32px;
+  justify-content: start;
 }
 
 @keyframes scrolling {
@@ -639,6 +643,8 @@ footer ul li a:hover {
 
 .carousel-container {
   width: 100%;
+  display: flex;
+  gap: 10px;
   overflow-x: hidden;
   &:hover .carousel {
     animation-play-state: paused;

@@ -197,7 +197,12 @@ nav ul li a.contact:active {
     display: none;
   }
 }
-
+@media (max-width: 468px) {
+  .nav-small ul {
+    overflow-y: scroll;
+    justify-content: start;
+  }
+}
 /* hero */
 .hero {
   display: flex;

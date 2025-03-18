@@ -395,6 +395,7 @@ nav ul li a.contact:active {
 .design.card {
   position: relative;
   padding: 0;
+  overflow: hidden;
   border: 1px solid var(--color-6);
 }
 

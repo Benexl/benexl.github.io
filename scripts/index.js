@@ -1,95 +1,125 @@
-const designs = {
-  adia: {
-    desktop: [
-      "./assets/images/adia/desktop/home.png",
-      "./assets/images/adia/desktop/blog.png",
-      "./assets/images/adia/desktop/write.png",
-    ],
-    phone: [
-      "./assets/images/adia/phone/home.png",
-      "./assets/images/adia/phone/blog.png",
-      "./assets/images/adia/phone/write.png",
-    ],
-  },
-  graphix: {
-    desktop: [
-      "./assets/images/graphix/desktop/Home.png",
-      "./assets/images/graphix/desktop/Bin.png",
-      "./assets/images/graphix/desktop/About.png",
-      "./assets/images/graphix/desktop/Development Resources.png",
-      "./assets/images/graphix/desktop/Favourites.png",
-      "./assets/images/graphix/desktop/from files.png",
-      "./assets/images/graphix/desktop/from folder.png",
-      "./assets/images/graphix/desktop/help.png",
-      "./assets/images/graphix/desktop/Projects.png",
-      "./assets/images/graphix/desktop/reportIssue.png",
-      "./assets/images/graphix/desktop/Settings.png",
-      "./assets/images/graphix/desktop/Splash.png",
-    ],
-    phone: [],
-  },
-  portfolio: {
-    desktop: ["./assets/images/portfolio/desktop/portfolio.png"],
-    phone: [],
-  },
-  volta: {
-    desktop: ["./assets/images/volta/desktop/volta.png"],
-    phone: [],
-  },
-  blissCafe: {
-    desktop: ["./assets/images/blissCafe/desktop/home.png"],
-    phone: [],
-  },
-};
+document.addEventListener("DOMContentLoaded", function () {
+  // Mobile menu toggle
+  const mobileMenuButton = document.querySelector(".mobile-menu-button");
+  const mobileMenu = document.querySelector(".mobile-menu");
 
-$("[data-design]").click(function () {
-  $("#full-image").attr("src", $(this).attr("src"));
-  const currentDesignEl = this;
+  mobileMenuButton.addEventListener("click", function () {
+    mobileMenu.classList.toggle("hidden");
+    mobileMenu.classList.toggle("active");
 
-  $("#next-image")
-    .off("click")
-    .on("click", function () {
-      let currentImage = $("#full-image").attr("src");
-      let currentDesign = $(currentDesignEl).attr("data-design");
-      console.log(currentDesign);
-      let currentIndex =
-        designs[currentDesign]["desktop"].indexOf(currentImage);
-      if (currentIndex < designs[currentDesign]["desktop"].length - 1) {
-        $("#full-image").attr(
-          "src",
-          designs[currentDesign]["desktop"][currentIndex + 1]
-        );
+    // Toggle icon between bars and times
+    const icon = this.querySelector("i");
+    if (icon.classList.contains("fa-bars")) {
+      icon.classList.remove("fa-bars");
+      icon.classList.add("fa-times");
+    } else {
+      icon.classList.remove("fa-times");
+      icon.classList.add("fa-bars");
+    }
+  });
+
+  // Close mobile menu when clicking a link
+  document.querySelectorAll(".mobile-nav-link, .mobile-nav-button").forEach(
+    (link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("active");
+        mobileMenuButton.querySelector("i").classList.remove("fa-times");
+        mobileMenuButton.querySelector("i").classList.add("fa-bars");
+      });
+    },
+  );
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: "smooth",
+        });
       }
     });
+  });
 
-  $("#previous-image")
-    .off("click")
-    .on("click", function () {
-      let currentImage = $("#full-image").attr("src");
-      let currentDesign = $(currentDesignEl).attr("data-design");
-      let currentIndex =
-        designs[currentDesign]["desktop"].indexOf(currentImage);
-      if (currentIndex > 0) {
-        $("#full-image").attr(
-          "src",
-          designs[currentDesign]["desktop"][currentIndex - 1]
-        );
-      }
+  // Image viewer functionality
+  const designCards = document.querySelectorAll(".design-card");
+  const imageViewer = document.getElementById("image-viewer");
+  const fullImage = document.getElementById("full-image");
+  const closeButton = document.querySelector(".close-button");
+  const prevButton = document.getElementById("previous-image");
+  const nextButton = document.getElementById("next-image");
+  const figmaLink = document.getElementById("figma-link");
+
+  let currentImageIndex = 0;
+  const designImages = Array.from(designCards).map((card) => ({
+    src: card.querySelector("img").getAttribute("src"),
+    design: card.querySelector("img").getAttribute("data-design"),
+  }));
+
+  // Open image viewer
+  designCards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+      currentImageIndex = index;
+      updateImageViewer();
+      imageViewer.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
     });
+  });
 
-  $("#image-viewer").show();
-});
+  // Close image viewer
+  closeButton.addEventListener("click", () => {
+    imageViewer.classList.add("hidden");
+    document.body.style.overflow = "";
+  });
 
-$("#image-viewer .close").click(function () {
-  $("#image-viewer").hide();
+  // Navigation buttons
+  prevButton.addEventListener("click", () => {
+    currentImageIndex = (currentImageIndex - 1 + designImages.length) %
+      designImages.length;
+    updateImageViewer();
+  });
+
+  nextButton.addEventListener("click", () => {
+    currentImageIndex = (currentImageIndex + 1) % designImages.length;
+    updateImageViewer();
+  });
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (!imageViewer.classList.contains("hidden")) {
+      if (e.key === "Escape") {
+        imageViewer.classList.add("hidden");
+        document.body.style.overflow = "";
+      } else if (e.key === "ArrowLeft") {
+        currentImageIndex = (currentImageIndex - 1 + designImages.length) %
+          designImages.length;
+        updateImageViewer();
+      } else if (e.key === "ArrowRight") {
+        currentImageIndex = (currentImageIndex + 1) % designImages.length;
+        updateImageViewer();
+      }
+    }
+  });
+
+  function updateImageViewer() {
+    const currentImage = designImages[currentImageIndex];
+    fullImage.setAttribute("src", currentImage.src);
+    fullImage.setAttribute("alt", currentImage.design + " design");
+
+    // Update Figma link (you would need to add actual Figma links)
+    figmaLink.setAttribute(
+      "href",
+      `https://figma.com/design/${currentImage.design}`,
+    );
+  }
+
+  // Set current year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
 });
-$(".hamburger-menu").click(function (e) {
-  console.log($(".nav-small ul").css("display"));
-  $(".nav-small ul").css("display") == "none"
-    ? $(".nav-small ul").css("display", "flex")
-    : $(".nav-small ul").css("display", "none");
-});
-$(".carousel").clone().appendTo(".carousel-container");
-// $("#designs .card").each((index, element) => {
-//   $(element).clone().appendTo("#designs .carousel");
-// });

@@ -3,293 +3,306 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/b31ba985c9.js"
-      crossorigin="anonymous"
-    ></script>
+    <title>Benexl | Programmer & Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+    <script src="https://kit.fontawesome.com/b31ba985c9.js" crossorigin="anonymous"></script>
     <script src="./libs/jquery.js"></script>
     <link rel="stylesheet" href="style/style.css" />
-    <title>Benexl</title>
   </head>
-  <body>
-    <header>
-      <nav>
-        <div class="nav-large">
-          <div class="logo">Benexl</div>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#designs">Designs</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="/blogs/index.html">Blog</a></li>
-            <li>
-              <a href="mailto:bxw254@gmail.com" target="_blank" class="contact"
-                >Contact Me</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="nav-small">
-          <div>
-            <div class="logo">Benexl</div>
-            <div class="hamburger-menu">
-              <i class="fas fa-bars"></i>
+  <body class="bg-[#0d0e0d] text-[#faf9ee] font-poppins">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0d0e0d] via-[#0d0e0d] to-[#27a38f] opacity-80"></div>
+      <div class="absolute inset-0 bg-noise opacity-5"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50">
+      <nav class="bg-[#0d0e0d]/95 backdrop-blur-md border-b border-[#72716d]/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <span class="text-2xl font-bold text-[#faf9ee] hover:text-[#27a38f] transition-colors duration-300">
+                  <span class="text-[#27a38f]">B</span>enexl
+                </span>
+              </div>
+            </div>
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-baseline space-x-4">
+                <a href="/" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#designs" class="nav-link">Designs</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="/blogs/index.html" class="nav-link">Blog</a>
+                <a href="mailto:bxw254@gmail.com" class="nav-button">
+                  Contact Me
+                </a>
+              </div>
+            </div>
+            <div class="-mr-2 flex md:hidden">
+              <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-[#faf9ee] hover:text-[#27a38f] focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+              </button>
             </div>
           </div>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#designs">Designs</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="/blogs/index.html">Blog</a></li>
-            <li>
-              <a href="mailto:bxw254@gmail.com" target="_blank" class="contact"
-                >Contact Me</a
-              >
-            </li>
-          </ul>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden">
+          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="/" class="mobile-nav-link">Home</a>
+            <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#skills" class="mobile-nav-link">Skills</a>
+            <a href="#designs" class="mobile-nav-link">Designs</a>
+            <a href="#projects" class="mobile-nav-link">Projects</a>
+            <a href="/blogs/index.html" class="mobile-nav-link">Blog</a>
+            <a href="mailto:bxw254@gmail.com" class="mobile-nav-button">
+              Contact Me
+            </a>
+          </div>
         </div>
       </nav>
     </header>
-    <div class="hero">
-      <div class="punch-line">
-        <h1>Hi 👋</h1>
-        <p>I am a programmer / designer</p>
-        <p>Bringing Ideas To Life</p>
-        <a href="mailto:bxw254@gmail.com" target="_blank"
-          >Lets Talk about Yours Today</a
-        >
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <h1 class="text-5xl md:text-7xl font-bold text-[#faf9ee]">
+            Hi <span class="wave">👋</span>
+          </h1>
+          <div class="space-y-2">
+            <p class="text-2xl md:text-4xl font-bold text-[#27a38f] glow-text">
+              I am a programmer / designer
+            </p>
+            <p class="text-xl md:text-2xl font-medium text-[#72716d]">
+              Bringing Ideas To Life
+            </p>
+          </div>
+          <a href="mailto:bxw254@gmail.com" class="inline-block px-8 py-3 bg-gradient-to-r from-[#27a38f] to-[#d48d28] rounded-lg text-[#faf9ee] font-bold hover:shadow-lg hover:shadow-[#27a38f]/30 transition-all duration-300 transform hover:-translate-y-1">
+            Let's Talk About Yours Today
+          </a>
+        </div>
+        <div class="hidden md:block relative">
+          <img src="assets/images/coding.gif" alt="Hero Image" class="rounded-xl border-2 border-[#27a38f]/50 shadow-lg shadow-[#27a38f]/20">
+          <div class="absolute -inset-4 border-2 border-[#27a38f]/20 rounded-xl z-[-1] animate-pulse"></div>
+        </div>
       </div>
-      <div class="cool-image">
-        <img src="assets/images/coding.gif" alt="Hero Image" />
-      </div>
-    </div>
-    <section>
-      <div class="mini-section" id="about">
-        <p class="mini-section-header">About</p>
-        <div class="mini-section-content">
-          <div class="character card">
-            <div class="character-image">
-              <img src="assets/images/me.jpg" alt="An image of Benexl" />
-            </div>
-            <div class="character-details">
-              <div class="character-detail">
-                <h2>Name</h2>
-                <p>Benedict Xavier</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="section-header">About</h2>
+        <div class="grid md:grid-cols-2 gap-8 mt-12">
+          <!-- Profile Card -->
+          <div class="profile-card">
+            <div class="flex flex-col items-center p-6">
+              <div class="relative mb-6">
+                <img src="assets/images/me.jpg" alt="Benedict Xavier" class="w-24 h-24 rounded-full border-2 border-[#27a38f] object-cover">
+                <div class="absolute -inset-2 border-2 border-[#27a38f]/30 rounded-full animate-ping-slow z-[-1]"></div>
               </div>
-              <div class="character-detail">
-                <h2>Email</h2>
-                <p>bxw254@gmail.com</p>
-              </div>
-              <div class="character-detail">
-                <h2>Nationality</h2>
-                <p>Kenyan</p>
+              <div class="w-full space-y-4">
+                <div class="flex justify-between border-b border-[#72716d]/30 pb-2">
+                  <span class="text-sm font-bold text-[#27a38f] opacity-80">Name</span>
+                  <span class="text-sm font-semibold text-[#72716d]">Benedict Xavier</span>
+                </div>
+                <div class="flex justify-between border-b border-[#72716d]/30 pb-2">
+                  <span class="text-sm font-bold text-[#27a38f] opacity-80">Email</span>
+                  <span class="text-sm font-semibold text-[#72716d]">bxw254@gmail.com</span>
+                </div>
+                <div class="flex justify-between border-b border-[#72716d]/30 pb-2">
+                  <span class="text-sm font-bold text-[#27a38f] opacity-80">Nationality</span>
+                  <span class="text-sm font-semibold text-[#72716d]">Kenyan</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="quote">
-            <p>
-              Hi, I'm <strong>Benedict Xavier</strong>, a passionate and driven
-              programmer with a strong foundation in
-              <strong>Python, AI, and machine learning</strong>. I enjoy solving
-              complex problems, from
-              <strong>optimization challenges</strong> like university
-              timetabling with OR-Tools to
-              <strong>building intelligent systems</strong> using LangChain and
-              Transformers.
+          
+          <!-- Bio -->
+          <div class="space-y-6">
+            <p class="text-lg">
+              Hi, I'm <strong class="text-[#27a38f]">Benedict Xavier</strong>, a passionate and driven programmer with a strong foundation in <strong class="text-[#27a38f]">Python, AI, and machine learning</strong>. I enjoy solving complex problems, from <strong class="text-[#27a38f]">optimization challenges</strong> like university timetabling with OR-Tools to <strong class="text-[#27a38f]">building intelligent systems</strong> using LangChain and Transformers.
             </p>
-            <p>
-              Beyond coding, I have a deep appreciation for
-              <strong>philosophy, psychology, and personal growth</strong>. My
-              journey has shaped me into a critical thinker with a unique
-              perspective on life and technology. I'm always eager to learn,
-              push boundaries, and turn innovative ideas into reality.
+            <p class="text-lg">
+              Beyond coding, I have a deep appreciation for <strong class="text-[#27a38f]">philosophy, psychology, and personal growth</strong>. My journey has shaped me into a critical thinker with a unique perspective on life and technology. I'm always eager to learn, push boundaries, and turn innovative ideas into reality.
             </p>
-            <p>
-              When I'm not programming, you might find me exploring
-              <strong>music, art, or biohacking</strong>—always seeking ways to
-              maximize both mind and body. If you're interested in
-              <strong>collaborating on AI projects</strong> or just having a
-              thought-provoking conversation, feel free to connect!
+            <p class="text-lg">
+              When I'm not programming, you might find me exploring <strong class="text-[#27a38f]">music, art, or biohacking</strong>—always seeking ways to maximize both mind and body. If you're interested in <strong class="text-[#27a38f]">collaborating on AI projects</strong> or just having a thought-provoking conversation, feel free to connect!
             </p>
           </div>
         </div>
       </div>
-      <div class="mini-section" id="skills">
-        <p class="mini-section-header">Skills</p>
-        <div class="carousel-container">
-          <div class="mini-section-content carousel">
-            <div class="skill card">
-              <i class="fas fa-laptop-code"></i>
-              <p>Programming languages</p>
-              <p>python, c, c++, go, JavaScript, html/css</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="section-header">Skills</h2>
+        <div class="mt-12">
+          <div class="skills-carousel">
+            <div class="skill-card">
+              <i class="fas fa-laptop-code text-6xl mb-4 text-[#27a38f]"></i>
+              <h3 class="text-2xl font-bold mb-2">Programming</h3>
+              <p class="text-[#72716d]">Python, C, C++, Go, JavaScript, HTML/CSS</p>
             </div>
-            <div class="skill card">
-              <i class="fab fa-figma"></i>
-              <p>Figma</p>
-              <p>UI/UX Design</p>
+            <div class="skill-card">
+              <i class="fab fa-figma text-6xl mb-4 text-[#27a38f]"></i>
+              <h3 class="text-2xl font-bold mb-2">Figma</h3>
+              <p class="text-[#72716d]">UI/UX Design</p>
             </div>
-            <div class="skill card">
-              <i class="fas fa-mobile-alt"></i>
-              <p>App Development</p>
-              <p>Flutter, React Native</p>
+            <div class="skill-card">
+              <i class="fas fa-mobile-alt text-6xl mb-4 text-[#27a38f]"></i>
+              <h3 class="text-2xl font-bold mb-2">App Development</h3>
+              <p class="text-[#72716d]">Flutter, React Native</p>
             </div>
-            <div class="skill card">
-              <i class="fas fa-code"></i>
-              <p>Web Development</p>
-              <p>HTML, CSS, JavaScript, React</p>
+            <div class="skill-card">
+              <i class="fas fa-code text-6xl mb-4 text-[#27a38f]"></i>
+              <h3 class="text-2xl font-bold mb-2">Web Development</h3>
+              <p class="text-[#72716d]">HTML, CSS, JavaScript, React</p>
             </div>
-            <div class="skill card">
-              <i class="fas fa-server"></i>
-              <p>API Development</p>
-              <p>Node.js, Express, Django</p>
+            <div class="skill-card">
+              <i class="fas fa-server text-6xl mb-4 text-[#27a38f]"></i>
+              <h3 class="text-2xl font-bold mb-2">API Development</h3>
+              <p class="text-[#72716d]">Node.js, Express, Django</p>
             </div>
-            <div class="skill card">
-              <i class="fas fa-paint-brush"></i>
-              <p>Graphic Design</p>
-              <p>Photoshop, Illustrator</p>
+            <div class="skill-card">
+              <i class="fas fa-paint-brush text-6xl mb-4 text-[#27a38f]"></i>
+              <h3 class="text-2xl font-bold mb-2">Graphic Design</h3>
+              <p class="text-[#72716d]">Photoshop, Illustrator</p>
             </div>
-            <div class="skill card">
-              <i class="fas fa-pencil-alt"></i>
-              <p>Logo Design</p>
-              <p>Branding, Identity</p>
+            <div class="skill-card">
+              <i class="fas fa-pencil-alt text-6xl mb-4 text-[#27a38f]"></i>
+              <h3 class="text-2xl font-bold mb-2">Logo Design</h3>
+              <p class="text-[#72716d]">Branding, Identity</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section>
-      <div class="mini-section" id="designs">
-        <p class="mini-section-header">Designs</p>
-        <div class="carousel-container-disable">
-          <div class="mini-section-content carousel-disable">
-            <div class="design card">
-              <img
-                src="./assets/images/graphix/desktop/Home.png"
-                data-design="graphix"
-                alt=""
-              />
-              <div>Click to Expand</div>
+
+    <!-- Designs Section -->
+    <section id="designs" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="section-header">Designs</h2>
+        <div class="mt-12">
+          <div class="designs-grid">
+            <div class="design-card">
+              <img src="./assets/images/graphix/desktop/Home.png" data-design="graphix" alt="Graphix Design">
+              <div class="design-overlay">
+                <span>Click to Expand</span>
+              </div>
             </div>
-            <div class="design card">
-              <img
-                src="./assets/images/adia/desktop/home.png"
-                data-design="adia"
-                alt=""
-              />
-              <div>Click to Expand</div>
+            <div class="design-card">
+              <img src="./assets/images/adia/desktop/home.png" data-design="adia" alt="Adia Design">
+              <div class="design-overlay">
+                <span>Click to Expand</span>
+              </div>
             </div>
-            <div class="design card">
-              <img
-                src="./assets/images/blissCafe/desktop/home.png"
-                data-design="bliss-cafe"
-              />
-              <div>Click to Expand</div>
+            <div class="design-card">
+              <img src="./assets/images/blissCafe/desktop/home.png" data-design="bliss-cafe" alt="Bliss Cafe Design">
+              <div class="design-overlay">
+                <span>Click to Expand</span>
+              </div>
             </div>
-            <div class="design card">
-              <img
-                src="./assets/images/volta/desktop/volta.png"
-                data-design="volta"
-                alt=""
-              />
-              <div>Click to Expand</div>
+            <div class="design-card">
+              <img src="./assets/images/volta/desktop/volta.png" data-design="volta" alt="Volta Design">
+              <div class="design-overlay">
+                <span>Click to Expand</span>
+              </div>
             </div>
-            <div class="design card">
-              <img
-                src="./assets/images/portfolio/desktop/portfolio.png"
-                data-design="portfolio"
-                alt=""
-              />
-              <div>Click to Expand</div>
-            </div>
-          </div>
-        </div>
-        <div class="mini-section" id="projects">
-          <p class="mini-section-header">Open Source Projects</p>
-          <div class="mini-section-content">
-            <div class="github-card">
-              <a href="https://github.com/benexl/yt-x"
-                ><img
-                  src="https://opengraph.githubassets.com/3f84a8dfd32e3fd874197891dbce5777325c25b901668ff5347bf2618a2bff1e/Benexl/yt-x"
-                  alt=""
-              /></a>
-            </div>
-            <div class="github-card">
-              <a href="https://github.com/benexl/lib-x"
-                ><img
-                  src="https://opengraph.githubassets.com/3f84a8dfd32e3fd874197891dbce5777325c25b901668ff5347bf2618a2bff1e/Benexl/lib-x"
-                  alt=""
-              /></a>
-            </div>
-            <div class="github-card">
-              <a href="https://github.com/benexl/fastanime"
-                ><img
-                  src="https://opengraph.githubassets.com/3f84a8dfd32e3fd874197891dbce5777325c25b901668ff5347bf2618a2bff1e/Benexl/FastAnime"
-                  alt=""
-              /></a>
+            <div class="design-card">
+              <img src="./assets/images/portfolio/desktop/portfolio.png" data-design="portfolio" alt="Portfolio Design">
+              <div class="design-overlay">
+                <span>Click to Expand</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <footer>
-      <div class="logo">Benexl</div>
-      <ul>
-        <li>
-          <a href="https://github.com/benexl"
-            ><i class="fa-brands fa-github"></i
-          ></a>
-        </li>
-        <li>
-          <a href="https://instagram.com/benex254"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-        </li>
-        <li>
-          <a href="https://wa.me/254701468604" target="_blank"
-            ><i class="fa-brands fa-whatsapp"></i
-          ></a>
-        </li>
-        <!-- <li>
-          <a href=""><i class="fa-brands fa-discord"></i></a>
-        </li> -->
-        <li>
-          <a
-            href="https://www.linkedin.com/in/benedict-xavier-b5b8aa20b/"
-            target="_blank"
-            ><i class="fa-brands fa-linkedin"></i
-          ></a>
-        </li>
-        <!-- <li>
-          <a href=""><i class="fa-brands fa-reddit"></i></a>
-        </li> -->
-      </ul>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="section-header">Open Source Projects</h2>
+        <div class="mt-12">
+          <div class="projects-grid">
+            <a href="https://github.com/benexl/yt-x" class="project-card">
+              <img src="https://opengraph.githubassets.com/3f84a8dfd32e3fd874197891dbce5777325c25b901668ff5347bf2618a2bff1e/Benexl/yt-x" alt="YT-X Project">
+              <div class="project-overlay">
+                <span>View on GitHub</span>
+              </div>
+            </a>
+            <a href="https://github.com/benexl/lib-x" class="project-card">
+              <img src="https://opengraph.githubassets.com/3f84a8dfd32e3fd874197891dbce5777325c25b901668ff5347bf2618a2bff1e/Benexl/lib-x" alt="Lib-X Project">
+              <div class="project-overlay">
+                <span>View on GitHub</span>
+              </div>
+            </a>
+            <a href="https://github.com/benexl/fastanime" class="project-card">
+              <img src="https://opengraph.githubassets.com/3f84a8dfd32e3fd874197891dbce5777325c25b901668ff5347bf2618a2bff1e/Benexl/FastAnime" alt="FastAnime Project">
+              <div class="project-overlay">
+                <span>View on GitHub</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0d0e0d] border-t border-[#72716d]/30 py-8 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+        <div class="text-2xl font-bold mb-4 md:mb-0">
+          <span class="text-[#faf9ee] hover:text-[#27a38f] transition-colors duration-300">
+            <span class="text-[#27a38f]">B</span>enexl
+          </span>
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://github.com/benexl" class="social-icon">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://instagram.com/benex254" class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/254701468604" target="_blank" class="social-icon">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/benedict-xavier-b5b8aa20b/" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mt-6 text-center text-sm text-[#72716d]">
+        &copy; <span id="year"></span> Benedict Xavier. All rights reserved.
+      </div>
     </footer>
 
-    <!-- convinience elements -->
-    <div id="image-viewer">
-      <i class="fa fa-times close i" aria-hidden="true"></i>
-      <i
-        id="previous-image"
-        class="fa fa-arrow-circle-left i"
-        aria-hidden="true"
-      ></i>
-      <i
-        id="next-image"
-        class="fa fa-arrow-circle-right i"
-        aria-hidden="true"
-      ></i>
-      <a>
-        <div>
-          <i class="fab fa-figma"></i>
-        </div>
-        <div class="text">view in figma</div>
+    <!-- Image Viewer Modal -->
+    <div id="image-viewer" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4">
+      <button class="close-button absolute top-4 right-4 text-3xl text-[#72716d] hover:text-red-500 transition-colors">
+        <i class="fas fa-times"></i>
+      </button>
+      <button id="previous-image" class="nav-button left-4">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button id="next-image" class="nav-button right-4">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="relative max-w-4xl w-full">
+        <img id="full-image" class="w-full rounded-lg shadow-2xl border border-[#27a38f]/50" src="" alt="">
+      </div>
+      <a id="figma-link" href="#" target="_blank" class="absolute bottom-8 right-8 bg-[#27a38f] hover:bg-[#d48d28] text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors">
+        <i class="fab fa-figma"></i>
+        <span>View in Figma</span>
       </a>
-
-      <img class="modal-content" id="full-image" />
     </div>
+
     <script src="scripts/index.js"></script>
   </body>
 </html>

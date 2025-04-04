@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benexl | AI/ML Enthusiast & Full-Stack Developer</title>
+    <title>Benexl | AI/ML & Full-Stack Developer</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #00ff88;
@@ -22,10 +24,13 @@
             color: white;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
         .glass-card {
-            background: rgba(18, 18, 18, 0.7);
+            background: rgba(18, 18, 18, 0.85);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -33,16 +38,16 @@
         
         .bg-space {
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(0, 255, 136, 0.05) 0%, transparent 20%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.5"/><circle cx="50" cy="30" r="1" fill="white" opacity="0.7"/><circle cx="80" cy="20" r="1" fill="white" opacity="0.3"/><circle cx="10" cy="50" r="1" fill="white" opacity="0.6"/><circle cx="90" cy="60" r="1" fill="white" opacity="0.4"/><circle cx="30" cy="80" r="1" fill="white" opacity="0.8"/><circle cx="70" cy="90" r="1" fill="white" opacity="0.2"/></svg>');
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 136, 0.03) 0%, transparent 20%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="0.5" fill="white" opacity="0.5"/><circle cx="50" cy="30" r="0.5" fill="white" opacity="0.7"/><circle cx="80" cy="20" r="0.5" fill="white" opacity="0.3"/><circle cx="10" cy="50" r="0.5" fill="white" opacity="0.6"/><circle cx="90" cy="60" r="0.5" fill="white" opacity="0.4"/><circle cx="30" cy="80" r="0.5" fill="white" opacity="0.8"/><circle cx="70" cy="90" r="0.5" fill="white" opacity="0.2"/></svg>');
             background-size: cover;
-            animation: starsMove 60s linear infinite;
+            animation: starsMove 120s linear infinite;
         }
         
         @keyframes starsMove {
             0% { background-position: 0 0; }
-            100% { background-position: 1000px 1000px; }
+            100% { background-position: 2000px 2000px; }
         }
         
         .text-primary {
@@ -61,13 +66,77 @@
             background-color: var(--primary);
         }
         
-        .skill-pill {
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .main-content {
+            flex: 1;
+        }
+        
+        .skill-card {
+            flex: 0 0 auto;
+            width: 160px;
             transition: all 0.3s ease;
         }
         
-        .skill-pill:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.1);
+        }
+        
+        .skills-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+        }
+        
+        .skills-carousel::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .skills-carousel::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        .skills-carousel::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        .projects-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+        }
+        
+        .projects-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .projects-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        .projects-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        .project-card {
+            flex: 0 0 auto;
+            width: 300px;
+            scroll-snap-align: start;
         }
         
         .floating {
@@ -76,23 +145,138 @@
         
         @keyframes floating {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 255, 136, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #00ff88, #00b8ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: .15em solid var(--primary);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary); }
+        }
+        
+        .card-hover-effect {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 255, 136, 0.1), 0 10px 10px -5px rgba(0, 255, 136, 0.04);
+        }
+        
+        .contact-input {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-input:focus {
+            border-bottom: 2px solid var(--primary);
+            outline: none;
+        }
+        
+        /* Full-screen footer */
+        .footer-container {
+            position: relative;
+            margin-top: auto;
+            width: 100%;
+        }
+        
+        .footer-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .footer-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        
+        .footer-wave .shape-fill {
+            fill: rgba(18, 18, 18, 0.85);
+        }
+        
+        .footer-content {
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding-top: 60px;
+        }
+        
+        /* Hero GIF container */
+        .hero-gif-container {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .hero-gif-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a0a, #121212);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
         }
     </style>
 </head>
-<body class="bg-space min-h-screen">
-    <!-- Navbar Card -->
-    <nav class="glass-card rounded-xl mx-4 mt-4 p-4 shadow-lg animate__animated animate__fadeIn">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
+<body class="bg-space">
+    <!-- Sticky Navbar Card with rounded corners -->
+    <nav class="sticky-nav glass-card rounded-2xl mx-4 mt-4 p-4 shadow-lg animate__animated animate__fadeIn">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <span class="text-2xl font-bold text-primary">Benexl</span>
             </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#" class="text-white hover:text-primary font-medium">Home</a>
-                <a href="#projects" class="text-gray-400 hover:text-primary font-medium">Projects</a>
-                <a href="#blog" class="text-gray-400 hover:text-primary font-medium">Blog</a>
-                <a href="#contact" class="text-gray-400 hover:text-primary font-medium">Contact</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-400 hover:text-primary font-medium transition hover:scale-105">About</a>
+                <a href="#skills" class="text-gray-400 hover:text-primary font-medium transition hover:scale-105">Skills</a>
+                <a href="#projects" class="text-gray-400 hover:text-primary font-medium transition hover:scale-105">Projects</a>
+                <a href="#contact" class="text-gray-400 hover:text-primary font-medium transition hover:scale-105">Contact</a>
             </div>
             <button class="md:hidden text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -102,250 +286,443 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="container mx-auto px-4 py-20 md:py-32 flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 animate__animated animate__fadeInLeft">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">
-                Hi, I'm <span class="text-primary">Benedict Xavier</span>
-            </h1>
-            <h2 class="text-xl md:text-2xl text-gray-300 mb-6">
-                AI/ML Enthusiast & Full-Stack Developer
-            </h2>
-            <p class="text-gray-400 mb-8 max-w-lg">
-                Computer Science student at JKUAT passionate about building intelligent systems and seamless user experiences. 
-                I specialize in Python, AI/ML, and modern web technologies.
-            </p>
-            <div class="flex space-x-4">
-                <a href="#contact" class="bg-primary text-black px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">
-                    Get In Touch
-                </a>
-                <a href="#projects" class="border border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary hover:bg-opacity-10 transition">
-                    View Projects
-                </a>
-            </div>
-        </div>
-        <div class="md:w-1/2 flex justify-center mt-10 md:mt-0 animate__animated animate__fadeInRight">
-            <div class="relative">
-                <div class="absolute -inset-4 bg-primary rounded-xl opacity-20 blur-lg"></div>
-                <div class="relative glass-card rounded-xl p-2">
-                    <div class="bg-gray-800 rounded-lg overflow-hidden w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
-                        <!-- Placeholder for your image or avatar -->
-                        <div class="text-6xl text-primary font-bold">BX</div>
-                    </div>
+    <main class="main-content">
+        <!-- Hero Section with GIF placeholder -->
+        <section class="container mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center">
+            <div class="max-w-2xl animate__animated animate__fadeIn">
+                <div class="typewriter mb-6">
+                    <h1 class="text-4xl md:text-6xl font-bold gradient-text">
+                        Benedict Xavier
+                    </h1>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="container mx-auto px-4 py-16">
-        <div class="glass-card rounded-xl p-8 animate__animated animate__fadeInUp">
-            <h2 class="text-3xl font-bold mb-8 text-center">
-                My <span class="text-primary">Skillset</span> & Expertise
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card rounded-xl p-6 hover:border-primary border border-transparent transition">
-                    <div class="text-primary text-4xl mb-4">💻</div>
-                    <h3 class="text-xl font-bold mb-2">Python Powerhouse</h3>
-                    <p class="text-gray-400">
-                        Writing clean, efficient Python code is second nature to me. From scripts to complex systems, 
-                        I leverage Python's ecosystem to build robust solutions.
-                    </p>
-                </div>
-                <div class="glass-card rounded-xl p-6 hover:border-primary border border-transparent transition">
-                    <div class="text-primary text-4xl mb-4">🤖</div>
-                    <h3 class="text-xl font-bold mb-2">AI/ML Enthusiast</h3>
-                    <p class="text-gray-400">
-                        Deep expertise in Transformers, LangChain (agents & RAG), and cutting-edge AI technologies. 
-                        I build intelligent systems that learn and adapt.
-                    </p>
-                </div>
-                <div class="glass-card rounded-xl p-6 hover:border-primary border border-transparent transition">
-                    <div class="text-primary text-4xl mb-4">🔥</div>
-                    <h3 class="text-xl font-bold mb-2">Full-Stack Wizardry</h3>
-                    <p class="text-gray-400">
-                        Proficient in Firebase, React, ShadCN UI, and React Router to craft seamless, 
-                        modern web experiences from front to back.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Preview -->
-    <section id="projects" class="container mx-auto px-4 py-16">
-        <div class="glass-card rounded-xl p-8 animate__animated animate__fadeInUp">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-3xl font-bold">
-                    Featured <span class="text-primary">Projects</span>
+                <h2 class="text-xl md:text-2xl text-gray-300 mb-8">
+                    Building the future with <span class="text-primary">AI</span> and <span class="text-primary">Code</span>
                 </h2>
-                <a href="#" class="text-primary hover:underline">View All →</a>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-card rounded-xl overflow-hidden hover:border-primary border border-transparent transition group">
-                    <div class="h-48 bg-gradient-to-r from-gray-900 to-gray-800 flex items-center justify-center">
-                        <div class="text-4xl text-primary">🔍</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">AI-Powered Search Engine</h3>
-                        <p class="text-gray-400 mb-4">
-                            A semantic search engine using transformers and RAG to deliver precise results.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill bg-gray-800 text-primary px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="skill-pill bg-gray-800 text-primary px-3 py-1 rounded-full text-sm">LangChain</span>
-                            <span class="skill-pill bg-gray-800 text-primary px-3 py-1 rounded-full text-sm">Transformers</span>
+                
+                <!-- GIF Container -->
+                <div class="hero-gif-container mb-10">
+                    <div class="hero-gif-placeholder">
+                        <div>
+                            <i class="fas fa-image text-4xl mb-2"></i>
+                            <p>Your GIF will go here</p>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card rounded-xl overflow-hidden hover:border-primary border border-transparent transition group">
-                    <div class="h-48 bg-gradient-to-r from-gray-900 to-gray-800 flex items-center justify-center">
-                        <div class="text-4xl text-primary">🌐</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Modern Web Dashboard</h3>
-                        <p class="text-gray-400 mb-4">
-                            A responsive admin dashboard built with React, ShadCN UI, and Firebase.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill bg-gray-800 text-primary px-3 py-1 rounded-full text-sm">React</span>
-                            <span class="skill-pill bg-gray-800 text-primary px-3 py-1 rounded-full text-sm">Firebase</span>
-                            <span class="skill-pill bg-gray-800 text-primary px-3 py-1 rounded-full text-sm">ShadCN UI</span>
-                        </div>
-                    </div>
+                
+                <div class="flex justify-center space-x-4">
+                    <a href="#projects" class="bg-primary text-black px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition shadow-lg hover:shadow-primary/30 transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary hover:bg-opacity-10 transition transform hover:scale-105">
+                        Let's Talk
+                    </a>
+                </div>
+                <div class="mt-12 animate__animated animate__fadeInUp animate__delay-1s">
+                    <a href="#about" class="text-gray-400 hover:text-primary transition animate-bounce inline-block">
+                        <i class="fas fa-chevron-down text-2xl"></i>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Blog Preview -->
-    <section id="blog" class="container mx-auto px-4 py-16">
-        <div class="glass-card rounded-xl p-8 animate__animated animate__fadeInUp">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-3xl font-bold">
-                    Latest <span class="text-primary">Blog</span> Posts
+        <!-- About Section -->
+        <section id="about" class="container mx-auto px-4 py-16">
+            <div class="glass-card rounded-xl p-8 animate__animated animate__fadeInUp">
+                <h2 class="text-3xl font-bold mb-6 text-center">
+                    About <span class="text-primary">Me</span>
                 </h2>
-                <a href="#" class="text-primary hover:underline">Read All →</a>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/3 flex justify-center relative">
+                        <div class="relative floating">
+                            <div class="absolute -inset-4 bg-primary rounded-xl opacity-20 blur-lg animate-pulse"></div>
+                            <div class="relative glass-card rounded-xl p-2 overflow-hidden">
+                                <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg overflow-hidden w-64 h-64 flex items-center justify-center">
+                                    <div class="text-6xl text-primary font-bold">BX</div>
+                                </div>
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                    <div class="flex justify-center space-x-4">
+                                        <a href="#" class="text-gray-300 hover:text-primary transition"><i class="fab fa-github"></i></a>
+                                        <a href="#" class="text-gray-300 hover:text-primary transition"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#" class="text-gray-300 hover:text-primary transition"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="mb-6">
+                            <h3 class="text-xl font-bold text-primary mb-2">Who Am I?</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                A passionate Computer Science student at JKUAT specializing in artificial intelligence and full-stack development. I create intelligent systems that solve real-world problems with elegant code.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="glass-card rounded-lg p-4 card-hover-effect">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-graduation-cap text-primary text-sm"></i>
+                                    </div>
+                                    <h4 class="font-bold">Education</h4>
+                                </div>
+                                <p class="text-gray-400 text-sm">BSc Computer Science<br>JKUAT, Kenya</p>
+                            </div>
+                            <div class="glass-card rounded-lg p-4 card-hover-effect">
+                                <div class="flex items-center mb-2">
+                                    <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-briefcase text-primary text-sm"></i>
+                                    </div>
+                                    <h4 class="font-bold">Focus Areas</h4>
+                                </div>
+                                <p class="text-gray-400 text-sm">AI/ML • Full-Stack Dev<br>Cloud Architecture</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 glass-card rounded-lg p-4 card-hover-effect">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-heart text-primary text-sm"></i>
+                                </div>
+                                <h4 class="font-bold">Passion</h4>
+                            </div>
+                            <p class="text-gray-400 text-sm">I'm driven by the challenge of creating technology that's both powerful and accessible. My work combines cutting-edge AI with intuitive interfaces to deliver exceptional user experiences.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card rounded-xl p-6 hover:border-primary border border-transparent transition">
-                    <div class="text-primary text-2xl mb-4">📝</div>
-                    <h3 class="text-xl font-bold mb-2">Understanding RAG Systems</h3>
-                    <p class="text-gray-400 mb-4">
-                        A deep dive into Retrieval-Augmented Generation and its applications in modern AI.
-                    </p>
-                    <span class="text-primary text-sm">Read More →</span>
-                </div>
-                <div class="glass-card rounded-xl p-6 hover:border-primary border border-transparent transition">
-                    <div class="text-primary text-2xl mb-4">⚛️</div>
-                    <h3 class="text-xl font-bold mb-2">React Performance Tips</h3>
-                    <p class="text-gray-400 mb-4">
-                        Optimizing React applications for buttery smooth user experiences.
-                    </p>
-                    <span class="text-primary text-sm">Read More →</span>
-                </div>
-                <div class="glass-card rounded-xl p-6 hover:border-primary border border-transparent transition">
-                    <div class="text-primary text-2xl mb-4">🧠</div>
-                    <h3 class="text-xl font-bold mb-2">The Future of AI Agents</h3>
-                    <p class="text-gray-400 mb-4">
-                        Exploring autonomous AI agents and their potential impact on our digital lives.
-                    </p>
-                    <span class="text-primary text-sm">Read More →</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Preview -->
-    <section id="contact" class="container mx-auto px-4 py-16">
-        <div class="glass-card rounded-xl p-8 animate__animated animate__fadeInUp">
-            <h2 class="text-3xl font-bold mb-2 text-center">
-                Get In <span class="text-primary">Touch</span>
-            </h2>
-            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-8">
-                Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <form class="space-y-4">
-                        <div>
-                            <label for="name" class="block mb-2 text-sm font-medium">Name</label>
-                            <input type="text" id="name" class="glass-card border border-gray-700 text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="Your name" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block mb-2 text-sm font-medium">Email</label>
-                            <input type="email" id="email" class="glass-card border border-gray-700 text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="your@email.com" required>
-                        </div>
-                        <div>
-                            <label for="message" class="block mb-2 text-sm font-medium">Message</label>
-                            <textarea id="message" rows="4" class="glass-card border border-gray-700 text-white text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="Your message..."></textarea>
-                        </div>
-                        <button type="submit" class="bg-primary text-black px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition w-full">
-                            Send Message
-                        </button>
-                    </form>
+        <!-- Skills Section -->
+        <section id="skills" class="container mx-auto px-4 py-16">
+            <div class="glass-card rounded-xl p-8 animate__animated animate__fadeInUp">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">
+                        My <span class="text-primary">Technical</span> Arsenal
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Tools and technologies I use to bring ideas to life</p>
                 </div>
-                <div class="flex flex-col justify-between">
+                <div class="skills-carousel mb-8">
+                    <!-- Skill 1 -->
+                    <div class="skill-card glass-card rounded-xl p-6 flex flex-col items-center text-center card-hover-effect">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fab fa-python text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold">Python</h3>
+                        <p class="text-gray-400 text-sm mt-2">Advanced</p>
+                    </div>
+                    
+                    <!-- Skill 2 -->
+                    <div class="skill-card glass-card rounded-xl p-6 flex flex-col items-center text-center card-hover-effect">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fab fa-react text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold">React</h3>
+                        <p class="text-gray-400 text-sm mt-2">Advanced</p>
+                    </div>
+                    
+                    <!-- Skill 3 -->
+                    <div class="skill-card glass-card rounded-xl p-6 flex flex-col items-center text-center card-hover-effect">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fas fa-fire text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold">Firebase</h3>
+                        <p class="text-gray-400 text-sm mt-2">Expert</p>
+                    </div>
+                    
+                    <!-- Skill 4 -->
+                    <div class="skill-card glass-card rounded-xl p-6 flex flex-col items-center text-center card-hover-effect">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fas fa-brain text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold">TensorFlow</h3>
+                        <p class="text-gray-400 text-sm mt-2">Advanced</p>
+                    </div>
+                    
+                    <!-- Skill 5 -->
+                    <div class="skill-card glass-card rounded-xl p-6 flex flex-col items-center text-center card-hover-effect">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fab fa-node-js text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold">Node.js</h3>
+                        <p class="text-gray-400 text-sm mt-2">Advanced</p>
+                    </div>
+                    
+                    <!-- Skill 6 -->
+                    <div class="skill-card glass-card rounded-xl p-6 flex flex-col items-center text-center card-hover-effect">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fas fa-link text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold">LangChain</h3>
+                        <p class="text-gray-400 text-sm mt-2">Expert</p>
+                    </div>
+                    
+                    <!-- Skill 7 -->
+                    <div class="skill-card glass-card rounded-xl p-6 flex flex-col items-center text-center card-hover-effect">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fab fa-aws text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold">AWS</h3>
+                        <p class="text-gray-400 text-sm mt-2">Intermediate</p>
+                    </div>
+                    
+                    <!-- Skill 8 -->
+                    <div class="skill-card glass-card rounded-xl p-6 flex flex-col items-center text-center card-hover-effect">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fas fa-database text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold">MongoDB</h3>
+                        <p class="text-gray-400 text-sm mt-2">Advanced</p>
+                    </div>
+                    
+                    <!-- Skill 9 -->
+                    <div class="skill-card glass-card rounded-xl p-6 flex flex-col items-center text-center card-hover-effect">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fas fa-robot text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold">PyTorch</h3>
+                        <p class="text-gray-400 text-sm mt-2">Advanced</p>
+                    </div>
+                    
+                    <!-- Skill 10 -->
+                    <div class="skill-card glass-card rounded-xl p-6 flex flex-col items-center text-center card-hover-effect">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                            <i class="fas fa-shield-alt text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold">Docker</h3>
+                        <p class="text-gray-400 text-sm mt-2">Intermediate</p>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <p class="text-gray-400 mb-4">And many more technologies in my toolkit...</p>
+                    <a href="#contact" class="text-primary hover:underline inline-flex items-center">
+                        Ask me about my skills
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="container mx-auto px-4 py-16">
+            <div class="glass-card rounded-xl p-8 animate__animated animate__fadeInUp">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">
+                        Selected <span class="text-primary">Projects</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">A showcase of my recent work and contributions</p>
+                </div>
+                <div class="projects-container">
+                    <!-- Project 1 -->
+                    <div class="project-card glass-card rounded-xl overflow-hidden hover:border-primary border border-gray-800 transition card-hover-effect">
+                        <div class="h-48 bg-gradient-to-r from-gray-900 to-gray-800 flex items-center justify-center relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition"></div>
+                            <i class="fas fa-brain text-6xl text-primary group-hover:scale-110 transition"></i>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <span class="bg-primary text-black text-xs px-2 py-1 rounded">AI/ML</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Smart Document Analyzer</h3>
+                            <p class="text-gray-400 mb-4 text-sm">
+                                AI-powered document processing system using transformers to extract and classify information from unstructured documents.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-800 text-primary px-2 py-1 rounded-full text-xs">Python</span>
+                                <span class="bg-gray-800 text-primary px-2 py-1 rounded-full text-xs">LangChain</span>
+                                <span class="bg-gray-800 text-primary px-2 py-1 rounded-full text-xs">Next.js</span>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <a href="#" class="text-primary text-sm hover:underline">View Details</a>
+                                <a href="#" class="text-gray-400 hover:text-primary"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card glass-card rounded-xl overflow-hidden hover:border-primary border border-gray-800 transition card-hover-effect">
+                        <div class="h-48 bg-gradient-to-r from-gray-900 to-gray-800 flex items-center justify-center relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition"></div>
+                            <i class="fas fa-chart-line text-6xl text-primary group-hover:scale-110 transition"></i>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <span class="bg-primary text-black text-xs px-2 py-1 rounded">Web App</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Enterprise Dashboard</h3>
+                            <p class="text-gray-400 mb-4 text-sm">
+                                Comprehensive analytics platform with real-time data visualization and customizable reporting features.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-800 text-primary px-2 py-1 rounded-full text-xs">React</span>
+                                <span class="bg-gray-800 text-primary px-2 py-1 rounded-full text-xs">Firebase</span>
+                                <span class="bg-gray-800 text-primary px-2 py-1 rounded-full text-xs">D3.js</span>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <a href="#" class="text-primary text-sm hover:underline">View Details</a>
+                                <a href="#" class="text-gray-400 hover:text-primary"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card glass-card rounded-xl overflow-hidden hover:border-primary border border-gray-800 transition card-hover-effect">
+                        <div class="h-48 bg-gradient-to-r from-gray-900 to-gray-800 flex items-center justify-center relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition"></div>
+                            <i class="fas fa-cogs text-6xl text-primary group-hover:scale-110 transition"></i>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <span class="bg-primary text-black text-xs px-2 py-1 rounded">ML System</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Predictive Maintenance</h3>
+                            <p class="text-gray-400 mb-4 text-sm">
+                                Machine learning system that predicts equipment failures before they occur, reducing downtime by 40%.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-800 text-primary px-2 py-1 rounded-full text-xs">Python</span>
+                                <span class="bg-gray-800 text-primary px-2 py-1 rounded-full text-xs">PyTorch</span>
+                                <span class="bg-gray-800 text-primary px-2 py-1 rounded-full text-xs">FastAPI</span>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <a href="#" class="text-primary text-sm hover:underline">View Details</a>
+                                <a href="#" class="text-gray-400 hover:text-primary"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <a href="#" class="inline-flex items-center text-primary hover:underline">
+                        View all projects
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto px-4 py-16">
+            <div class="glass-card rounded-xl p-8 animate__animated animate__fadeInUp">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">
+                        Let's <span class="text-primary">Connect</span>
+                    </h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Have a project in mind or want to discuss opportunities? Get in touch!</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div>
-                        <h3 class="text-xl font-bold mb-4">Contact Information</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center space-x-4">
-                                <div class="text-primary text-xl">📧</div>
-                                <span class="text-gray-300">contact@benexl.dev</span>
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-gray-400 mb-2">Your Name</label>
+                                <input type="text" class="glass-card contact-input w-full p-3 bg-transparent text-white rounded-none">
                             </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="text-primary text-xl">🌐</div>
-                                <span class="text-gray-300">Nairobi, Kenya</span>
+                            <div>
+                                <label class="block text-gray-400 mb-2">Your Email</label>
+                                <input type="email" class="glass-card contact-input w-full p-3 bg-transparent text-white rounded-none">
                             </div>
-                        </div>
+                            <div>
+                                <label class="block text-gray-400 mb-2">Your Message</label>
+                                <textarea rows="4" class="glass-card contact-input w-full p-3 bg-transparent text-white rounded-none"></textarea>
+                            </div>
+                            <button type="submit" class="bg-primary text-black w-full py-4 rounded-lg font-medium hover:bg-opacity-90 transition shadow-lg hover:shadow-primary/30 transform hover:scale-[1.02] flex items-center justify-center">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                            </button>
+                        </form>
                     </div>
-                    <div class="mt-8">
-                        <h3 class="text-xl font-bold mb-4">Connect With Me</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="glass-card w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition">
-                                <span class="text-xl">🐦</span>
-                            </a>
-                            <a href="#" class="glass-card w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition">
-                                <span class="text-xl">💼</span>
-                            </a>
-                            <a href="#" class="glass-card w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition">
-                                <span class="text-xl">📚</span>
-                            </a>
-                            <a href="#" class="glass-card w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition">
-                                <span class="text-xl">🐙</span>
-                            </a>
+                    <div>
+                        <div class="glass-card rounded-xl p-6 h-full flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold mb-6 text-primary">Contact Information</h3>
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                            <i class="fas fa-envelope text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Email</h4>
+                                            <p class="text-gray-400">contact@benexl.dev</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                            <i class="fas fa-map-marker-alt text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Location</h4>
+                                            <p class="text-gray-400">Nairobi, Kenya</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1">
+                                            <i class="fas fa-globe text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Social</h4>
+                                            <div class="flex space-x-4 mt-2">
+                                                <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-github fa-lg"></i></a>
+                                                <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-linkedin fa-lg"></i></a>
+                                                <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-twitter fa-lg"></i></a>
+                                                <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-stack-overflow fa-lg"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8 pt-6 border-t border-gray-800">
+                                <p class="text-gray-400 text-sm">Typically respond within 24 hours</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer Card -->
-    <footer class="glass-card rounded-xl mx-4 mb-4 p-6 animate__animated animate__fadeInUp">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <span class="text-xl font-bold text-primary">Benexl</span>
-                    <span class="text-gray-400">| Benedict Xavier</span>
+    <!-- Full-screen Footer with Wave Animation -->
+    <div class="footer-container">
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,233.88-58.6c70.36-9.8,140.08-14.12,209.56-5.08c36.15,4.71,71.9,15.11,104.61,30.67C1182.59,91.5,1192.34,76.07,1200,60V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <div class="max-w-7xl mx-auto px-4 py-12">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                        <span class="text-2xl font-bold text-primary">Benexl</span>
+                        <span class="text-gray-400">| AI/ML & Full-Stack Developer</span>
+                    </div>
+                    <div class="flex space-x-6 mb-6 md:mb-0">
+                        <a href="#about" class="text-gray-400 hover:text-primary transition transform hover:scale-110">About</a>
+                        <a href="#skills" class="text-gray-400 hover:text-primary transition transform hover:scale-110">Skills</a>
+                        <a href="#projects" class="text-gray-400 hover:text-primary transition transform hover:scale-110">Projects</a>
+                        <a href="#contact" class="text-gray-400 hover:text-primary transition transform hover:scale-110">Contact</a>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-primary transition transform hover:scale-110"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition transform hover:scale-110"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition transform hover:scale-110"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition transform hover:scale-110"><i class="fab fa-stack-overflow fa-lg"></i></a>
+                    </div>
                 </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-primary">Home</a>
-                    <a href="#projects" class="text-gray-400 hover:text-primary">Projects</a>
-                    <a href="#blog" class="text-gray-400 hover:text-primary">Blog</a>
-                    <a href="#contact" class="text-gray-400 hover:text-primary">Contact</a>
+                <div class="border-t border-gray-800 mt-8 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                            © 2023 Benedict Xavier. All rights reserved.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-primary text-sm">Privacy Policy</a>
+                            <a href="#" class="text-gray-500 hover:text-primary text-sm">Terms of Service</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="border-t border-gray-800 mt-6 pt-6 text-center text-gray-500 text-sm">
-                © 2023 Benexl. All rights reserved. Computer Science Student at JKUAT.
             </div>
         </div>
-    </footer>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script>
-        // Simple animation trigger on scroll
+        // Animation trigger on scroll
         document.addEventListener('DOMContentLoaded', function() {
             const animateElements = document.querySelectorAll('.animate__animated');
             
@@ -366,6 +743,52 @@
                                           element.classList.contains('animate__fadeInRight') ? 'animate__fadeInRight' :
                                           element.classList.contains('animate__fadeInUp') ? 'animate__fadeInUp' :
                                           'animate__fadeIn';
+            });
+
+            // Auto-scrolling for skills carousel
+            const skillsCarousel = document.querySelector('.skills-carousel');
+            let isScrolling = false;
+            
+            function startScrolling() {
+                if (isScrolling) return;
+                isScrolling = true;
+                
+                let scrollAmount = 0;
+                const scrollStep = 1;
+                const scrollSpeed = 30;
+                
+                const scrollInterval = setInterval(() => {
+                    skillsCarousel.scrollLeft += scrollStep;
+                    scrollAmount += scrollStep;
+                    
+                    if (scrollAmount >= skillsCarousel.scrollWidth - skillsCarousel.clientWidth) {
+                        clearInterval(scrollInterval);
+                        setTimeout(() => {
+                            skillsCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+                            setTimeout(startScrolling, 2000);
+                        }, 2000);
+                    }
+                }, scrollSpeed);
+            }
+            
+            // Start scrolling after page loads
+            setTimeout(startScrolling, 2000);
+            
+            // Pause on hover
+            skillsCarousel.addEventListener('mouseenter', () => {
+                isScrolling = false;
+            });
+            
+            skillsCarousel.addEventListener('mouseleave', () => {
+                startScrolling();
+            });
+
+            // Animate footer wave on scroll
+            const footerWave = document.querySelector('.footer-wave');
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                const wavePosition = scrollPosition * 0.3;
+                footerWave.style.transform = `rotate(180deg) translateY(${wavePosition}px)`;
             });
         });
     </script>
